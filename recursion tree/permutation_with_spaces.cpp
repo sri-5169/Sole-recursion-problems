@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+void solve(string ip, string op)
+{
+    if (ip.length() == 0)
+    {
+        cout << op << "\t";
+        return;
+    }
+    string op1 = op, op2 = op;
+    op1.push_back(ip[0]);
+    op2.push_back(' ');
+    op2.push_back(ip[0]);
+    ip.erase(ip.begin() + 0);
+    solve(ip, op1);
+    solve(ip, op2);
+}
+
+int main()
+{
+    string s;
+    cin >> s;
+    string op = "";
+    op.push_back(s[0]);
+    s.erase(s.begin() + 0);
+    solve(s, op);
+}
